@@ -20,6 +20,7 @@
 import cockpit from 'cockpit';
 import React from 'react';
 import { Alert, Card, CardTitle, CardBody } from '@patternfly/react-core';
+import { VBoxManager } from './components/VBoxManager.jsx';
 
 const _ = cockpit.gettext;
 
@@ -35,15 +36,18 @@ export class Application extends React.Component {
 
     render() {
         return (
-            <Card>
-                <CardTitle>Starter Kit</CardTitle>
-                <CardBody>
-                    <Alert
-                        variant="info"
-                        title={ cockpit.format(_("Running on $0"), this.state.hostname) }
-                    />
-                </CardBody>
-            </Card>
+            <div>
+                <Card>
+                    <CardTitle>Starter Kit</CardTitle>
+                    <CardBody>
+                        <Alert
+                            variant="info"
+                            title={ cockpit.format(_("Running on $0"), this.state.hostname) }
+                        />
+                    </CardBody>
+                </Card>
+                <VBoxManager />
+            </div>
         );
     }
 }
